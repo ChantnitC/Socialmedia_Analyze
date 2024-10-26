@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    
+}
+
+body{
+    background-color: antiquewhite;
+    padding: 30px;
+}
+
+.container{
+    background-color: rgb(255, 228, 196);
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(10, 90, 228);
+    border-width: 15px;
+    width: 250px;
+    height: 1500px;
+    padding: 20px; 
+}
+
+.menu li{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    color: magenta;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+.menu li:hover{
+    background-color: azure;
+    border-radius: 10px;
+    }
+
+.menu li i {
+    margin-right: 10px;
+    font-size: 18px;
+    }
+.fit{
+    min-width: auto;
+    max-width: auto;
+}
+h1{
+    font-size: 50px;
+    
+}
