@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <center>
+        <font style="color: rgb(184, 9, 9);"><h1>To-Do List</h1></font>
+        <form action="/add" method="POST">
+            <input type="text" name="todo" placeholder="add tasks" required>
+            <select name="priority">
+                <option value="ต่ำ">low</option>
+                <option value="กลาง">mid</option>
+                <option value="สูง">high</option>
+            </select>
+            <input type="datetime-local" name="due_date" required>
+            <button type="submit">add</button>
+        </form>
+    </center>
+    
+    <div class="container">
+        <ul class="menu">
+            <li><i>🔎</i>search</li>
+            <li><i>🌟</i>my day</li>
+            <li><i>📅</i>this week</li>
+            <li><i>🗓️</i>this month</li>
+            <li><i>💥</i>all tasks</li>
+        </ul>
+    </div>
+
+   
+</body>
+</html>
