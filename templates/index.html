@@ -26,7 +26,7 @@
                     <li>
                         {{ todo.task }} - {{ todo.priority }} (กำหนดเส้นตาย: {{ todo.due_date.strftime('%Y-%m-%d %H:%M') }})
                         {% if not todo.completed %}
-                            <a href="/complete/{{ loop.index0 }}">ทำเสร็จ</a>
+                            <input type="checkbox" onchange="location.href='/complete/{{ loop.index0 }}'" {% if todo.complete %} checked {% endif %}>
                         {% endif %}
                         <a href="/delete/{{ loop.index0 }}">ลบ</a>
                     </li>
