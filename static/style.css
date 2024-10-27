@@ -24,7 +24,7 @@ body{
     align-items: center;
     padding: 10px;
     font-size: 14px;
-    color: magenta;
+    color: rgb(0, 162, 255);
     cursor: pointer;
     transition: background-color 0.3s;
     }
