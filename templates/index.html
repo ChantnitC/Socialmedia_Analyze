@@ -12,16 +12,29 @@
         <form action="/add" method="POST">
             <input type="text" name="todo" placeholder="add tasks" required>
             <select name="priority">
-                <option value="ต่ำ">low</option>
-                <option value="กลาง">mid</option>
-                <option value="สูง">high</option>
+                <option value="!">!</option>
+                <option value="!!">!!</option>
+                <option value="!!!">!!!</option>
             </select>
             <input type="datetime-local" name="due_date" required>
             <button type="submit">add</button>
         </form>
+        <div class="container">
+            <h2>Tasks</h2>
+            <ul>
+                {% for todo in todos %}
+                    <li>
+                        {{ todo.task }} - {{ todo.priority }} (กำหนดเส้นตาย: {{ todo.due_date.strftime('%Y-%m-%d %H:%M') }})
+                        {% if not todo.completed %}
+                            <a href="/complete/{{ loop.index0 }}">ทำเสร็จ</a>
+                        {% endif %}
+                        <a href="/delete/{{ loop.index0 }}">ลบ</a>
+                    </li>
+                {% endfor %}
+            </ul>
     </center>
     
-    <div class="container">
+    <div class="container2">
         <ul class="menu">
             <li><i>🔎</i>search</li>
             <li><i>🌟</i>my day</li>
