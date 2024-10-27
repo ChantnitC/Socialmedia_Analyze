@@ -28,7 +28,7 @@
                         {% if not todo.completed %}
                             <input type="checkbox" onchange="location.href='/complete/{{ loop.index0 }}'" {% if todo.complete %} checked {% endif %}>
                         {% endif %}
-                        <a href="/delete/{{ loop.index0 }}">ลบ</a>
+                        <a href="/delete/{{ loop.index0 }}">🗑️</a>
                     </li>
                 {% endfor %}
             </ul>
