@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="header"><h1>To-Do List</h1></div>
+    <div class="row">
+        <!-- Main Content -->
+        <div class="content">
+            <center>
+                <div class="task-list">
+                    <form action="/add" method="POST">
+                        <input type="text" name="todo" placeholder="Add tasks" required>
+                        <select name="priority">
+                            <option value=""selected>Priority</option>
+                            <option value="!">!</option>
+                            <option value="!!">!!</option>
+                            <option value="!!!">!!!</option>
+                        </select>
+                        <input type="datetime-local" name="due_date">
+                        <button type="submit">Add</button>
+                    </form>
+                    <ul>
+                        {% for todo in todos %}
+                            {% if not todo.completed %}
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <form action="/complete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                                <input type="checkbox" onchange="this.form.submit()" >
+                                            </form>
+                                            {{ todo.priority }} {{ todo.task }}
+                                        </dt>
+                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
+                                    </dl>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <h2>Completed Tasks</h2>
+                    <ul>
+                        <!-- แสดงรายการที่ทำเสร็จแล้ว -->
+                        {% for todo in todos %}
+                            {% if todo.completed %}
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                                <input type="checkbox" onchange="this.form.submit()" checked>
+                                            </form>
+                                            {{ todo.priority }} {{ todo.task }}
+                                        </dt>
+                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}
+                                            <a href="/delete/{{ loop.index0 }}">🗑️</a>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </center>
+        </div>
+        <!-- Sidebar เมนูด้านข้าง -->
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul class="menu">
+                <li><i>🔎</i> Search</li>
+                <li><i>🌟</i> My Day</li>
+                <li><i>📅</i> This Week</li>
+                <li><i>🗓️</i> This Month</li>
+                <li><i>💥</i> All Tasks</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+C:\Users\kaning\Dropbox\PC\Desktop\Socialmedia_Analyze\templates\alltask.html
