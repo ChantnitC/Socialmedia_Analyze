@@ -26,17 +26,27 @@
                     </form>
 
                     <h2>Tasks</h2>
-                    <!-- แสดงเปอร์เซ็นต์การเสร็จสิ้น -->
-                    <p>เปอร์เซ็นต์การเสร็จสิ้น: {{ completion_percentage | round(2) }}%</p>
+                    <p>Success: <span id="completion-text">{{ completion_percentage | round(2) }}</span>%</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+
+                    <script>
+        // รับค่าจากตัวแปรที่ส่งมาใน template
+                        const completionPercentage = {{ completion_percentage | round(2) }};
+        
+        // อัปเดตข้อความเปอร์เซ็นต์
+                        document.getElementById('completion-text').innerText = completionPercentage;
+
+        // อัปเดตความกว้างของหลอด
+                        document.getElementById('progress-bar').style.width = completionPercentage + '%';
+                    </script>
 
                     <!-- งานสุ่มประจำวัน -->
                     {% if main_task %}
-                        <p>ภารกิจหลักวันนี้: {{ main_task.task }}</p>
+                        <p>Today's Mission: {{ main_task.task }}</p>
                     {% endif %}
 
-                    <a href="alltask.html">อืม</a>
-                    <a href="new.html" class="menu-button">Go to New Page</a>
-                    <a class="ui blue button" href="alltask.html">Update</a>
 
                     <ul>
                         {% for todo in todos %}
@@ -87,7 +97,7 @@
                 <li><i>🌟</i> My Day</li>
                 <li><i>📅</i> This Week</li>
                 <li><i>🗓️</i> This Month</li>
-                <li><i>💥</i> All Tasks</li>
+                <li><a href="/templates/alltask.html"><i>💥</i> All Tasks</a></li>
             </ul>
         </div>
     </div>

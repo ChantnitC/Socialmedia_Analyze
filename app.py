@@ -49,6 +49,10 @@ def delete_todo(todo_id):
         todos.pop(todo_id)
     return redirect('/')
 
+@app.route('/alltask')
+def alltask():
+    return render_template('alltask.html')
+
 def calculate_completion_percentage():  # คำนวณเปอร์เซ็นต์
     if not todos:
         return 0
