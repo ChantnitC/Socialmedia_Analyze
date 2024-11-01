@@ -1,39 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายการประจำสัปดาห์นี้</title>
+    <link rel="stylesheet" href="/static/weekly.css">
+    <title>To-Do List</title>
 </head>
 <body>
-    <h1>รายการ To-Do ประจำสัปดาห์นี้</h1>
-    
-    <nav>
-        <a href="/">หน้าแรก</a>
-        <a href="/weekly_tasks">รายการประจำสัปดาห์นี้</a>
-    </nav>
+    <h1>This Week</h1>
+    <div class="row">
+        <div class="content">
+            <center>
+                        {% for todo in todos %}
+                            {% if not todo.completed %}
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <form action="/complete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                                <input type="checkbox" onchange="this.form.submit()" >
+                                            </form>
+                                            {{ todo.priority }} {{ todo.task }}
+                                        </dt>
+                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
+                                    </dl>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <h2>Completed Tasks</h2>
+                    <ul>
+                        <!-- แสดงรายการที่ทำเสร็จแล้ว -->
+                        {% for todo in todos %}
+                            {% if todo.completed %}
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                                <input type="checkbox" onchange="this.form.submit()" checked>
+                                            </form>
+                                            {{ todo.priority }} {{ todo.task }}
+                                        </dt>
+                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}
+                                            <a href="/delete/{{ loop.index0 }}">🗑️</a>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </center>
+    <div class="container">
+        <div class="nav">
+            <nav>
+                <a href="/">Back</a>
+                <a href="/weekly_tasks">week</a>
+            </nav>
+        </div>
+    </div>
 
-    <ul>
-        {% if todos %}
-            {% for todo in todos %}
-                <li>
-                    {{ todo['task'] }} - ความสำคัญ: {{ todo['priority'] }} - 
-                    กำหนดเส้นตาย: {{ todo['due_date'].strftime('%Y-%m-%d %H:%M') if todo['due_date'] else 'ไม่กำหนด' }} - 
-                    สถานะ: {{ 'ทำเสร็จแล้ว' if todo['completed'] else 'ยังไม่เสร็จ' }}
-                    
-                    <form action="{{ url_for('complete_todo', todo_id=loop.index0) }}" method="post" style="display:inline;">
-                        <button type="submit">{{ 'ยกเลิกการเสร็จสิ้น' if todo['completed'] else 'ทำเสร็จแล้ว' }}</button>
-                    </form>
-                    
-                    <a href="{{ url_for('delete_todo', todo_id=loop.index0) }}">ลบ</a>
-                </li>
-            {% endfor %}
-        {% else %}
-            <li>ไม่มีงานในสัปดาห์นี้</li>
-        {% endif %}
-    </ul>
-
-    <h2>กลับไปที่หน้าแรก</h2>
-    <a href="/">หน้าแรก</a>
+        </div>
+        <!-- Sidebar เมนูด้านข้าง -->
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <ul class="menu">
+                <li><i>🔎</i> Search</li>
+                <li><i>🌟</i> My Day</li>
+                <li><i>📅</i> This Week</li>
+                <li><i>🗓️</i> This Month</li>
+                <li><i>💥</i> All Tasks</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
