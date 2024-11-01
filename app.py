@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 import random
 
 
@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 # เก็บรายการ To-Do
 todos = []
+
+
 
 @app.route('/')
 def index():
@@ -53,11 +55,26 @@ def delete_todo(todo_id):
 def alltask():
     return render_template('alltask.html')
 
+@app.route('/myday')
+def myday():
+    return render_template('myday.html')
+
 def calculate_completion_percentage():  # คำนวณเปอร์เซ็นต์
     if not todos:
         return 0
     completed_count = sum(1 for todo in todos if todo['completed'])
     return (completed_count / len(todos)) * 100
+
+@app.route('/weekly_tasks')
+def weekly_tasks():
+    start_of_week = date.today() - timedelta(days=date.today().weekday())  # วันจันทร์ของสัปดาห์นี้
+    end_of_week = start_of_week + timedelta(days=6)  # วันอาทิตย์ของสัปดาห์นี้
+
+    # กรองรายการที่อยู่ในช่วงวันที่ของสัปดาห์นี้
+    weekly_todos = [todo for todo in todos if todo['due_date'] and start_of_week <= todo['due_date'].date() <= end_of_week]
+    
+    return render_template("weekly_tasks.html", todos=weekly_todos)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

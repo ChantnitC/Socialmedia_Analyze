@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการประจำสัปดาห์นี้</title>
+</head>
+<body>
+    <h1>รายการ To-Do ประจำสัปดาห์นี้</h1>
+    
+    <nav>
+        <a href="/">หน้าแรก</a>
+        <a href="/weekly_tasks">รายการประจำสัปดาห์นี้</a>
+    </nav>
+
+    <ul>
+        {% if todos %}
+            {% for todo in todos %}
+                <li>
+                    {{ todo['task'] }} - ความสำคัญ: {{ todo['priority'] }} - 
+                    กำหนดเส้นตาย: {{ todo['due_date'].strftime('%Y-%m-%d %H:%M') if todo['due_date'] else 'ไม่กำหนด' }} - 
+                    สถานะ: {{ 'ทำเสร็จแล้ว' if todo['completed'] else 'ยังไม่เสร็จ' }}
+                    
+                    <form action="{{ url_for('complete_todo', todo_id=loop.index0) }}" method="post" style="display:inline;">
+                        <button type="submit">{{ 'ยกเลิกการเสร็จสิ้น' if todo['completed'] else 'ทำเสร็จแล้ว' }}</button>
+                    </form>
+                    
+                    <a href="{{ url_for('delete_todo', todo_id=loop.index0) }}">ลบ</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>ไม่มีงานในสัปดาห์นี้</li>
+        {% endif %}
+    </ul>
+
+    <h2>กลับไปที่หน้าแรก</h2>
+    <a href="/">หน้าแรก</a>
+</body>
+</html>
