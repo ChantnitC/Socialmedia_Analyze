@@ -57,7 +57,15 @@ def alltask():
 
 @app.route('/myday')
 def myday():
-    return render_template('myday.html')
+    today = date.today()  # วันปัจจุบัน
+    # กรองรายการที่มีเดดไลน์เป็นวันนี้
+    today_todos = [todo for todo in todos if todo['due_date'] and todo['due_date'].date() == today]
+    
+    return render_template("myday.html", todos=today_todos)
+
+@app.route('/monthly')
+def monthly():
+    return render_template('monthly.html')
 
 def calculate_completion_percentage():  # คำนวณเปอร์เซ็นต์
     if not todos:

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/alltask.css">
+    <link rel="stylesheet" href="/static/monthly.css">
     <title>To-Do List</title>
 </head>
 <body>
-    <h1>All Tasks</h1>
+    <nav><a href="/">Back</a></nav>
+    <h1>This Month</h1>
     <div class="row">
         <div class="content">
             <center>
@@ -27,6 +28,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
+                    <h2>Tasks</h2>
                     <h2>Completed Tasks</h2>
                     <ul>
                         <!-- แสดงรายการที่ทำเสร็จแล้ว -->

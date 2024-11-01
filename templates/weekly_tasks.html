@@ -7,10 +7,13 @@
     <title>To-Do List</title>
 </head>
 <body>
+    <nav><a href="/">Back</a></nav>
+
     <h1>This Week</h1>
     <div class="row">
         <div class="content">
             <center>
+                    <h2>Tasks</h2>
                         {% for todo in todos %}
                             {% if not todo.completed %}
                                 <li>
@@ -27,7 +30,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
-                    <h2>Tasks</h2>
+                
                     <h2>Completed Tasks</h2>
                     <ul>
                         <!-- แสดงรายการที่ทำเสร็จแล้ว -->
@@ -51,14 +54,6 @@
                     </ul>
                 </div>
             </center>
-    <div class="container">
-        <div class="nav">
-            <nav>
-                <a href="/">Back</a>
-                <a href="/weekly_tasks">week</a>
-            </nav>
-        </div>
-    </div>
 
         </div>
         <!-- Sidebar เมนูด้านข้าง -->
