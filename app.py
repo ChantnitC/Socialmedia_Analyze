@@ -65,7 +65,15 @@ def myday():
 
 @app.route('/monthly')
 def monthly():
-    return render_template('monthly.html')
+    today = date.today()
+    # กำหนดเดือนและปีปัจจุบัน
+    current_month = today.month
+    current_year = today.year
+    
+    # กรองรายการที่อยู่ในเดือนและปีปัจจุบัน
+    monthly_todos = [todo for todo in todos if todo['due_date'] and todo['due_date'].month == current_month and todo['due_date'].year == current_year]
+    
+    return render_template('monthly.html', todos=monthly_todos)
 
 def calculate_completion_percentage():  # คำนวณเปอร์เซ็นต์
     if not todos:
