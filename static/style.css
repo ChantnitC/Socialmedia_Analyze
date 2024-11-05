@@ -30,6 +30,9 @@ body{
     position: absolute;
     top: 140px;
     left: 10px;
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 30px;
 }
 
 h1{ 
@@ -91,10 +94,20 @@ ul {
 
 .progress-bar {
     height: 30px;
-    width: 0; /* เริ่มต้นที่ 0 */
+    width: 0px; /* เริ่มต้นที่ 0 */
     background-color: #4caf50;
     text-align: center;
     line-height: 30px; /* center text vertically */
     color: white;
+    margin-right: auto;
     transition: width 0.5s;
+}
+
+a{
+    color:#39a3be;
+}
+
+.content{
+    background-color: whitesmoke;
+    border-radius: 100px;
 }
