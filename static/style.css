@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;  
+    box-sizing: border-box;
 }
 
 body{
@@ -8,7 +8,7 @@ body{
     padding: 30px;
 }
 
-.header {
+.header{
     color: #39a3be;
     padding: 10px;
     text-align: center;
@@ -105,9 +105,5 @@ ul {
 
 a{
     color:#39a3be;
-}
-
-.content{
-    background-color: whitesmoke;
-    border-radius: 100px;
+    text-decoration: none;
 }
