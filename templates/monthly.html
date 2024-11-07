@@ -16,6 +16,7 @@
     <div class="row">
         <div class="content">
             <center>
+                <div class="container">
                 <h2>Tasks</h2>
                 <ul>
                     {% for todo in todos %}
@@ -34,16 +35,16 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+                </div>
 
                 <h2>Completed Tasks</h2>
-                    <ul>
-                        <!-- แสดงรายการที่ทำเสร็จแล้ว -->
-                        {% for todo in todos %}
-                            {% if todo.completed %}
-                                <li>
-                                    <dl>
-                                        <dt>
-                                            <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                <ul>
+                    {% for todo in todos %}
+                        {% if todo.completed %}
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
                                                 <input type="checkbox" onchange="this.form.submit()" checked>
                                             </form>
                                             {{ todo.priority }} {{ todo.task }}
@@ -53,8 +54,8 @@
                                 </li>
                             {% endif %}
                         {% endfor %}
-                    </ul>
-            </div>
+                </ul>
+                </div>
             </center>
         </div>
         <!-- Sidebar เมนูด้านข้าง -->
