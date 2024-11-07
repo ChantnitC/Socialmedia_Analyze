@@ -93,3 +93,32 @@ a{
 .first{
     text-decoration: none;
 }
+
+.content{
+    width: 100%;
+    max-width: 500px;      /* กำหนดขนาดสูงสุดของฟอร์ม */
+    margin: 0 auto;        /* จัดให้อยู่ตรงกลางหน้าจอ */
+    padding: 20px;         /* เพิ่มระยะห่างภายในฟอร์ม */
+    background-color: #f9f9f9; /* สีพื้นหลังฟอร์ม */
+    border-radius: 8px;    /* ขอบมนของฟอร์ม */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ รอบฟอร์ม */
+}
+
+.container{
+    margin-top: 0px;
+    margin-bottom: 70px;
+
+}
+
+.container{
+ul{
+    width: 100%;
+    max-width: 500px;      /* กำหนดขนาดสูงสุดของฟอร์ม */
+    margin: 0 auto;        /* จัดให้อยู่ตรงกลางหน้าจอ */
+    padding: 20px;         /* เพิ่มระยะห่างภายในฟอร์ม */
+    background-color: #fff173; /* สีพื้นหลังฟอร์ม */
+    border-radius: 8px;    /* ขอบมนของฟอร์ม */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ รอบฟอร์ม */
+
+}
+}

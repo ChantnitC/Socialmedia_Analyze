@@ -12,17 +12,18 @@
             <center>
                 <div class="task-list">
                     <form action="/add" method="POST">
-                        <input type="text" name="todo" placeholder="Add tasks" required>
+                        <input type="text" name="todo" placeholder="add tasks" required>
                         <select name="priority">
-                            <option value=""selected>Priority</option>
+                            <option value=""selected>priority</option>
                             <option value="!">!</option>
                             <option value="!!">!!</option>
                             <option value="!!!">!!!</option>
                         </select>
                         <input type="datetime-local" name="due_date">
-                        <button type="submit">Add</button>
+                        <button type="submit">add</button>
                     </form>
-
+                </div>
+                
                     <h2>Tasks</h2>
                     <p>Success: <span id="completion-text">{{ completion_percentage | round(2) }}</span>%</p>
                     <div class="progress-container">
@@ -34,11 +35,6 @@
                         document.getElementById('completion-text').innerText = completionPercentage;
                         document.getElementById('progress-bar').style.width = completionPercentage + '%';
                     </script>
-
-                    <!-- งานสุ่มประจำวัน -->
-                    {% if main_task %}
-                        <p>Today's Mission: {{ main_task.task }}</p>
-                    {% endif %}
 
 
                     <ul>
@@ -58,6 +54,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
+                    
                     <h2>Completed Tasks</h2>
                     <ul>
                         <!-- แสดงรายการที่ทำเสร็จแล้ว -->
@@ -86,7 +83,6 @@
         <div class="sidebar">
             <h3>Menu</h3>
             <ul class="menu">
-                <li><i>🔎</i> Search</li>
                 <li><a href="/myday"><i>🌟</i> My Day</a></li>
                 <li><a href="/weekly_tasks"><i>📅</i> This Week</a></li>
                 <li><a href="/monthly"><i>🗓️</i> This Month</a></li>

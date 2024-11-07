@@ -16,45 +16,45 @@
     <div class="row">
         <div class="content">
             <center>
-                    <h2>Tasks</h2>
-                        {% for todo in todos %}
-                            {% if not todo.completed %}
-                                <li>
-                                    <dl>
-                                        <dt>
-                                            <form action="/complete/{{ loop.index0 }}" method="POST" style="display: inline;">
-                                                <input type="checkbox" onchange="this.form.submit()" >
-                                            </form>
-                                            {{ todo.priority }} {{ todo.task }}
-                                        </dt>
-                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
-                                    </dl>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                <h2>Tasks</h2>
+                <ul>
+                    {% for todo in todos %}
+                        {% if not todo.completed %}
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <form action="/complete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                            <input type="checkbox" onchange="this.form.submit()" >
+                                        </form>
+                                        {{ todo.priority }} {{ todo.task }}
+                                    </dt>
+                                    <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
+                                </dl>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
                 
-                    <h2>Completed Tasks</h2>
-                    <ul>
-                        <!-- แสดงรายการที่ทำเสร็จแล้ว -->
-                        {% for todo in todos %}
-                            {% if todo.completed %}
-                                <li>
-                                    <dl>
-                                        <dt>
-                                            <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
-                                                <input type="checkbox" onchange="this.form.submit()" checked>
-                                            </form>
-                                            {{ todo.priority }} {{ todo.task }}
-                                        </dt>
-                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}
-                                            <a href="/delete/{{ loop.index0 }}">🗑️</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                <h2>Completed Tasks</h2>
+                <ul>
+                    {% for todo in todos %}
+                        {% if todo.completed %}
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
+                                           <input type="checkbox" onchange="this.form.submit()" checked>
+                                        </form>
+                                        {{ todo.priority }} {{ todo.task }}
+                                    </dt>
+                                    <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}
+                                        <a href="/delete/{{ loop.index0 }}">🗑️</a>
+                                    </dd>
+                                </dl>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
                 </div>
             </center>
 
@@ -63,7 +63,6 @@
         <div class="sidebar">
             <h3>Menu</h3>
             <ul class="menu">
-                <li><i>🔎</i> Search</li>
                 <li><a href="/myday"><i>🌟</i> My Day</a></li>
                 <li><a href="/weekly_tasks"><i>📅</i> This Week</a></li>
                 <li><a href="/monthly"><i>🗓️</i> This Month</a></li>

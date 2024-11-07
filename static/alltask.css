@@ -30,6 +30,9 @@ body{
     position: absolute;
     top: 140px;
     left: 10px;
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 30px;
 }
 
 h1{ 
@@ -81,20 +84,12 @@ ul {
     max-width: auto;
 }
 
-.progress-container {
-    width: 30%;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 5px;
+a{
+    color:#39a3be;
+    text-decoration: none;
 }
 
-.progress-bar {
-    height: 30px;
-    width: 0; /* เริ่มต้นที่ 0 */
-    background-color: #4caf50;
-    text-align: center;
-    line-height: 30px; /* center text vertically */
-    color: white;
-    transition: width 0.5s;
+
+.first{
+    text-decoration: none;
 }

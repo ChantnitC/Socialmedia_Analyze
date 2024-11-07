@@ -94,10 +94,10 @@ ul {
 
 .progress-bar {
     height: 30px;
-    width: 0px; /* เริ่มต้นที่ 0 */
+    width: 0px;
     background-color: #4caf50;
     text-align: center;
-    line-height: 30px; /* center text vertically */
+    line-height: 30px;
     color: white;
     margin-right: auto;
     transition: width 0.5s;
@@ -107,3 +107,68 @@ a{
     color:#39a3be;
     text-decoration: none;
 }
+/* สไตล์ฟอร์มหลัก */
+.task-list{
+form {
+    width: 100%;
+    max-width: 500px;      /* กำหนดขนาดสูงสุดของฟอร์ม */
+    margin: 0 auto;        /* จัดให้อยู่ตรงกลางหน้าจอ */
+    padding: 20px;         /* เพิ่มระยะห่างภายในฟอร์ม */
+    background-color: #f9f9f9; /* สีพื้นหลังฟอร์ม */
+    border-radius: 8px;    /* ขอบมนของฟอร์ม */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ รอบฟอร์ม */
+  }
+  
+  /* สไตล์สำหรับ input และ select */
+  input[type="text"],
+  input[type="datetime-local"],
+  select {
+    width: 100%;           /* ทำให้ช่องกรอกข้อมูลกว้างเต็ม */
+    padding: 10px;         /* เพิ่มระยะห่างภายในช่อง */
+    margin-bottom: 15px;   /* เพิ่มช่องว่างระหว่างช่องกรอกข้อมูล */
+    border: 1px solid #ccc; /* ขอบเบาๆ สีเทา */
+    border-radius: 4px;    /* ขอบมน */
+    font-size: 16px;       /* ขนาดตัวอักษร */
+    background-color: #fff; /* พื้นหลังขาว */
+  }
+  
+  /* สไตล์ placeholder */
+  input[type="text"]::placeholder {
+    color: #aaa;           /* สีของข้อความ placeholder */
+    font-style: italic;    /* ให้ข้อความเป็นตัวเอียง */
+  }
+  
+  /* สไตล์ select */
+  select {
+    font-size: 16px;       /* ขนาดตัวอักษรใน dropdown */
+  }
+  
+  /* สไตล์สำหรับปุ่ม submit */
+  button {
+    width: 100%;           /* กว้างเต็มช่อง */
+    padding: 12px;         /* เพิ่มระยะห่างภายในปุ่ม */
+    font-size: 18px;       /* ขนาดตัวอักษรของปุ่ม */
+    background-color: #38d7ecf3; /* สีพื้นหลังปุ่ม */
+    color: #fff;           /* ตัวอักษรสีขาว */
+    border: none;          /* ไม่มีขอบ */
+    border-radius: 4px;    /* ขอบมน */
+    cursor: pointer;       /* แสดงเป็นมือเมื่อ hover */
+    transition: background-color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อ hover */
+  }
+  
+  /* สไตล์เมื่อ hover ที่ปุ่ม */
+  button:hover {
+    background-color: #baf5ed; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+  }
+  
+  /* เพิ่มช่องว่างระหว่างฟอร์ม */
+  form > * {
+    margin-bottom: 15px;
+  }
+  
+  /* สไตล์กรอบฟอร์ม */
+  form input, form select, form button {
+    box-sizing: border-box; /* ให้ช่องกรอกข้อมูลขนาดเท่ากับขนาดที่กำหนด */
+  }
+}
+  
