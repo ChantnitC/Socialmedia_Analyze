@@ -70,19 +70,3 @@
     </div>
 </body>
 </html>
-
-<form action="/complete/{{ loop.index0 }}" method="POST" style="display: inline;">
-    <input type="checkbox" onchange="this.form.submit()" >
-</form>
-{{ todo.priority }} {{ todo.task }}
-</dt>
-<dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
-
-<form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
-    <input type="checkbox" onchange="this.form.submit()" checked>
- </form>
- {{ todo.priority }} {{ todo.task }}
-</dt>
-<dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}
- <a href="/delete/{{ loop.index0 }}">🗑️</a>
-</dd>

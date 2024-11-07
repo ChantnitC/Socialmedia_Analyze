@@ -53,7 +53,9 @@ def delete_todo(todo_id):
 
 @app.route('/alltask')
 def alltask():
-    return render_template('alltask.html')
+    sorted_todos = sorted(todos, key=lambda x: x['completed'], reverse=True)
+    return render_template('alltask.html', todos=sorted_todos)
+
 
 @app.route('/myday')
 def myday():
