@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/monthly.css">
+    <link rel="stylesheet" href="/static/myday.css">
     <title>To-Do List</title>
 </head>
 <body>
-
+    
     <nav class="first">
         <a href="/">Back</a>
     </nav>
@@ -35,8 +35,6 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-                </div>
-
                 <h2>Completed Tasks</h2>
                 <ul>
                     {% for todo in todos %}
@@ -45,15 +43,15 @@
                                 <dl>
                                     <dt>
                                         <form action="/uncomplete/{{ loop.index0 }}" method="POST" style="display: inline;">
-                                                <input type="checkbox" onchange="this.form.submit()" checked>
-                                            </form>
-                                            {{ todo.priority }} {{ todo.task }}
-                                        </dt>
-                                        <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
-                                    </dl>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
+                                            <input type="checkbox" onchange="this.form.submit()" checked>
+                                        </form>
+                                        {{ todo.priority }} {{ todo.task }}
+                                    </dt>
+                                    <dd>{{ todo.due_date.strftime('%d/%m/%Y  %H:%M') if todo.due_date else '' }}<a href="/delete/{{ loop.index0 }}">🗑️</a></dd>
+                                </dl>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
                 </div>
             </center>
