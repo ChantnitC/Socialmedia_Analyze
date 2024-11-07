@@ -12,15 +12,7 @@ body{
     color: #39a3be;
     padding: 10px;
     text-align: center;
-  }
-.column {
-  float:  left;
-  padding: 10px;
-  width: 25%;
 }
-.column.middle {
-    width: 50%;
-  }
 
 .sidebar{
     overflow: auto;
@@ -78,11 +70,6 @@ ul {
     margin-right: 10px;
     font-size: 18px;
     }
-    
-.fit{
-    min-width: auto;
-    max-width: auto;
-}
 
 a{
     color:#39a3be;
@@ -96,12 +83,12 @@ a{
 
 .content{
     width: 100%;
-    max-width: 500px;      /* กำหนดขนาดสูงสุดของฟอร์ม */
-    margin: 0 auto;        /* จัดให้อยู่ตรงกลางหน้าจอ */
-    padding: 20px;         /* เพิ่มระยะห่างภายในฟอร์ม */
-    background-color: #f9f9f9; /* สีพื้นหลังฟอร์ม */
-    border-radius: 8px;    /* ขอบมนของฟอร์ม */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ รอบฟอร์ม */
+    max-width: 500px;      
+    margin: 0 auto;        
+    padding: 20px;        
+    background-color: #f9f9f9; 
+    border-radius: 8px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .container{
@@ -113,11 +100,11 @@ a{
 .container{
 ul{
     width: 100%;
-    max-width: 500px;      /* กำหนดขนาดสูงสุดของฟอร์ม */
-    margin: 0 auto;        /* จัดให้อยู่ตรงกลางหน้าจอ */
-    padding: 20px;         /* เพิ่มระยะห่างภายในฟอร์ม */
-    background-color: #fff173; /* สีพื้นหลังฟอร์ม */
-    border-radius: 8px;    /* ขอบมนของฟอร์ม */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ รอบฟอร์ม */
+    max-width: 500px;      
+    margin: 0 auto;        
+    padding: 20px;         
+    background-color: #fff173;  
+    border-radius: 8px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 }

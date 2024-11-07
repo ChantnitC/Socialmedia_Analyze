@@ -12,15 +12,7 @@ body{
     color: #39a3be;
     padding: 10px;
     text-align: center;
-  }
-.column {
-  float:  left;
-  padding: 10px;
-  width: 25%;
 }
-.column.middle {
-    width: 50%;
-  }
 
 .sidebar{
     overflow: auto;
@@ -78,11 +70,6 @@ ul {
     margin-right: 10px;
     font-size: 18px;
     }
-    
-.fit{
-    min-width: auto;
-    max-width: auto;
-}
 
 a{
     color:#39a3be;
@@ -92,4 +79,32 @@ a{
 
 .first{
     text-decoration: none;
+}
+
+.content{
+    width: 100%;
+    max-width: 500px;      
+    margin: 0 auto;        
+    padding: 20px;        
+    background-color: #f9f9f9; 
+    border-radius: 8px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.container{
+    margin-top: 0px;
+    margin-bottom: 70px;
+
+}
+
+.container{
+ul{
+    width: 100%;
+    max-width: 500px;      
+    margin: 0 auto;        
+    padding: 20px;         
+    background-color: #fff173;  
+    border-radius: 8px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 }
